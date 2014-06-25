@@ -3,3 +3,8 @@
 *.int
 *.lk
 *.zip
+*.pdf
+*.aux
+*.log
+*.synctex.gz
+*.toc

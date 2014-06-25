@@ -1,0 +1,177 @@
+\documentclass{mg2}
+\usepackage{thmbox}
+\begin{document}
+\newtheorem[S]{definition}{Definition}[subsection]
+\newtheorem[S]{lemma}{Lemma}[subsection]
+\newtheorem[S]{proposition}{Proposition}[subsection]
+\newtheorem[S]{satz}{Satz}[subsection]
+\newtheorem[S]{beobachtung}{Beobachtung}[subsection]
+
+\title{Zusammenfassung: Mathematische Grundlagen 2}
+
+\date{SoSe 2014}
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Lineare Algebra}
+\subsection{Lineare Algebra}
+\begin{definition}[Vektor] 
+Ein \underline{n-Tupel} reeller Zahlen ist eine geordnete Ansammlung reeller Zahlen. Die Menge aller solcher Tupel bezeichnen wir als $\mathbb{R}^n$. Die Elemente von $\mathbb{R}^n$ werden auch \underline{Vektoren} genannt. 
+
+In $\begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix} \in \mathbb{R}^n$ nennen wir $x_1,\dots,x_n$ die n-te Komponente.
+\end{definition}
+
+Die \underline{Summe} von Vektoren in $\mathbb{R}^n$ ist $\begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix} + \begin{pmatrix}y_1\\ \vdots \\ y_n\end{pmatrix}=\begin{pmatrix}x_1 + y_1\\ \vdots \\ x_n + y_n\end{pmatrix}$.
+
+$\mathbb{R}^n + \mathbb{R}^m$ ist nicht definiert! Die Differenz berechnet sich analog.
+
+Der Summenvektor kann als die Diagonale des von beiden ursprünglichen Vektoren aufgespannten Parallelogramms veranschaulicht werden (in $\mathbb{R}^2$).
+
+\begin{definition}[Skalarmultiplikation]Für eine Zahl $c \in \mathbb{R}$ und $\begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix}$ setze $c \cdot \begin{pmatrix}x_1\\ \vdots \\ x_n\end{pmatrix} =\begin{pmatrix}c \cdot x_1\\ \vdots \\c \cdot  x_n\end{pmatrix}$.
+\end{definition}
+
+\begin{definition}[Linearkombination, Span]
+Für Vektoren $u_1, u_2,\dots,u_k \in \mathbb{R}^n$ und $\lambda_1,\lambda_2,\dots,\lambda_k \in \mathbb{R}$ nennen wir $\lambda_1 u_1, \lambda_2 u_2,\dots,\lambda_k u_k$ die \underline{Linearkombination} von $u_1, u_2,\dots,u_k$.
+
+Der \underline{Span} (lineare Hülle) von $u_1, u_2, \dots, u_k$ ist $Span(u_1, u_2, \dots, u_k) \\
+= \{ \lambda_1 u_1 + \lambda_2 u_2 + \dots + \lambda_k u_k | \lambda_1, \dots, \lambda_k \in \mathbb{R} \} \subseteq \mathbb{R}^n$.
+\end{definition}
+
+\begin{definition}[lineare (Un)abhängigkeit]
+Die Vektoren $v_1, \dots, v_k \in \mathbb{R}^n$ heißen \underline{linear unabhängig}, falls für jede Linearkombination $\lambda_1 v_1, \dots, \lambda_k v_k = 0$ schon gelten muss, dass $\lambda_1 = \dots = \lambda_k = 0$.
+
+Andernfalls heißen $v_1,\dots,v_k$ \underline{linear abhängig}.
+\end{definition}
+
+\begin{beobachtung} 
+In $\mathbb{R}^n$ sind die Vektoren $v_1,\dots,v_k$ mit $k > n$ immer \textbf{linear abhängig}.
+\end{beobachtung}
+
+\begin{lemma}
+Ist $w \in Span(u_1,\dots,u_k)$, so ist die Darstellung als Linearkombination von $u_1,\dots,u_k$ genau dann eindeutig, wenn $u_1,\dots,u_k$ linear unabhängig sind.
+\end{lemma}
+
+\newpage
+\subsection{Unterräume}
+\begin{definition}[Unterraum]
+Sei $U \subseteq \mathbb{R}^n$ eine nichtleere Teilmenge von $\mathbb{R}^n$.
+
+$U$ heißt Unterraum, falls
+\begin{enumerate}
+\item für alle Vektoren $u,w \in U$ auch $u+w \in U$ gilt.
+\item für alle $u \in U, \lambda \in \mathbb{R}$ ist auch $\lambda \cdot u \in U$.
+\end{enumerate}
+\end{definition}
+
+Der trivialste Unterraum ist der Nullvektor. $\mathbb{R}^n$ ist immer auch ein Unterraum von $\mathbb{R}^n$.
+
+\begin{proposition}
+Sind $u_1,\dots,u_k \in \mathbb{R}^n$, so ist $Span(u_1,\dots,u_k)$ ein Unterraum von $\mathbb{R}^n$.
+\end{proposition}
+
+\begin{definition}[Erzeugendensystem, Basis]
+Sei $U \subseteq \mathbb{R}^n, u \neq \{0\}$.
+
+Dann nennt man Vektoren $v_1,\dots, v_k \in U$ ein \underline{Erzeugendensystem} von $U$, falls $U = Span(v_1,\dots,v_k)$.
+
+Ist $v_1,\dots,v_k$ ein Ergzeugendensystem von $U$ und zusätzlich linear unabhängig, dann nennt man $v_1,\dots,v_k$ eine \underline{Basis} von $U$.
+\end{definition}
+
+Ein Erzeugendensystem muss nicht eindeutig sein.
+
+In $\mathbb{R}^n$ bilden die Vektoren $e_1, \dots, e_n$ die \textbf{Standardbasis} von $\mathbb{R}^n$.
+
+Jeder Unterraum $U \neq \{0\}$ hat eine Basis und alle Basen von $U$ haben die gleiche Anzahl von Elementen.
+
+In einem Unterraum $U \subseteq \mathbb{R}^n, U \neq \{0\}$ kann es höchstens $n$ Vektoren geben, denn in $\mathbb{R}^n$ können höchstens $n$ Vektoren linear unabhängig sein.
+
+\begin{lemma}
+Sind Vektoren $u_1,\dots,u_k \in U$, $U$ ein Unterraum von $\mathbb{R}^n$, dann ist $Span(u_1,\dots,u_k)$ eine Teilmenge von $U$.
+\end{lemma}
+
+Aussagen über Basen:
+\begin{itemize}
+\item Sei $U \in \mathbb{R}^n$ ein Unterraum und $U \neq \{0\}$. Dann sind maximal unabhängige Systeme in $U$ dasselbe wie Basen in $U$.
+\item Jeder Unterraum von $\mathbb{R}^n$ hat eine Basis.
+\item Alle Basen von $U$ haben die gleiche Anzahl von Elementen. Diese Anzahl ist die \underline{Dimension} (dim) von $U$.
+\item Die Dimension $dim$ von $\mathbb{R}^n$ ist gleich n.
+\item Basen von einem Unterraum $U \neq \{0\}$ von $\mathbb{R}^n$ sind dasselbe wie minimale Erzeugendensysteme von $U$.
+\item Ist $U = Span(u_1,\dots,u_k) \subseteq \mathbb{R}^n$, so sind $u_1\dots,u_k$ ein Erzeugendensystem von $U$.
+\item Wenn $u_1, \dots, u_k$ linear unabhängig sind, bilden sie eine Basis von $U$.
+\item Jede maximale linear unabhängige Auswahl von Vektoren aus $u_1,\dots,u_k$ bildet eine Basis von $U$. Die maximale Anzahl ist genau die Anzahl von Stufen in der Zeilenstufenform (Gauß) der Matrix mit den Spalten $u_1,\dots,u_k$.
+\end{itemize}
+
+\begin{beobachtung}
+Seien $U \subseteq V \subseteq \mathbb{R}^n$ Unterräume, $U~und~V \neq \{0\}$.
+
+Dann ist $dim~U \leq dim~V$.
+
+Ferner gilt: falls $U \neq V$, dann ist $dim~U < dim~V$. Insbesondere ist $dim~U \leq n$.
+\end{beobachtung}
+
+\begin{definition}[Koordinaten bzgl einer Basis]
+Sei $U \subseteq \mathbb{R}^n, U \neq \{0\}$ ein Unterraum. Sei $u_1,\dots,u_k$ eine Basis von $U$.
+
+Da $U = Span(u_1,\dots,u_k)$ ist, lässt sich jeder Vektor $w \in U$ eindeutig als Linearkombination von $u_1,\dots,u_k$ schreiben.
+
+Es gibt also Zahlen $\lambda_1,\dots,\lambda_k \in \mathbb{R}$ mit $w = \lambda_1 u_1,\dots,\lambda_k u_k$.
+
+Dann nennen wir $\lambda_1,\dots,\lambda_k$ die \underline{Koordinaten} von $w$ bezüglich der Basis $u_1,\dots,u_k$.
+
+ \underline{k-dimensionaler Koordinatenvektor} von $w = \begin{pmatrix}\lambda_1\\\vdots\\\lambda_k\end{pmatrix}$.
+\end{definition}
+
+\subsection{Lineare Abbildungen}
+\begin{definition}[Lineare Abbildung]
+Seien $U \subseteq \mathbb{R}^n, V \subseteq \mathbb{R}^l$ Unterräume.
+
+Eine Abbildung $f: U \to V$ heißt \underline{linear}, wenn
+\begin{enumerate}
+\item Für alle Vektoren $u_1,u_2 \in U$ gilt: $f(u_1+u_2) = f(u_1) + f(u_2)$.
+\item Für alle $u \in U, c \in \mathbb{R}$ gilt: $f(u\cdot c) = c \cdot f(u)$.
+\end{enumerate}
+\end{definition}
+
+\begin{satz}
+Sei eine $n \times k$-Matrix vorgegeben. Dann können wir die Abbildung 
+
+$T_A: \mathbb{R}^k \to \mathbb{R}^k; \begin{pmatrix}x_1\\\vdots\\x_k\end{pmatrix} \mapsto A \cdot \begin{pmatrix}x_1\\\vdots\\x_k\end{pmatrix}$ definieren.
+
+Dann ist $T_A$ eine lineare Abbildung.
+\end{satz}
+
+\begin{satz}
+$T_B: \mathbb{R}^k \to \mathbb{R}^n; x \mapsto B \cdot x$ ist eine lineare Abbildung.
+\end{satz}
+
+\begin{proposition}
+Sei $B$ eine $n \times k$-Matrix:
+
+$B = \begin{pmatrix} b_{11} \dots b_{1k}\\ b_{21} \dots b_{2k}\\\vdots\\ b_{n1} \dots b_{nk}\end{pmatrix}$ und sei $T_B = \mathbb{R}^k \to \mathbb{R}^n$ die von $B$ dargestellte Abbildung. 
+
+Das Bild $T_B(e_i)$m ist durch die i-te Spalte von $B$ gegeben, also $T_B(e_i) = \begin{pmatrix}b_{1i}\\b_{2i}\\\vdots\\b_{ni}\end{pmatrix}$
+\end{proposition}
+
+\begin{satz}[Eindeutigkeit von linearen Abbildungen]
+Seien $U \subseteq \mathbb{R}^n, V \subseteq \mathbb{R}^m$ Unterräume und sei $u_1,\dots,u_k$ eine Basis von $U$.
+
+Seien $v_1,\dots,v_k$ Vektoren in $V$. Dann gibt es genau eine lineare Abbildung $\phi: U \to V$ mit der Eigenschaft $\phi(u_i) = v_i$ mit $i = \{1,\dots,k\}$.
+\end{satz}
+
+\begin{beobachtung}
+Sei $V \subseteq \mathbb{R}^m$ ein Unterraum und seien $v_1,\dots,v_k \in V$. Dann gibt es eine Abbildung $\psi: \mathbb{R}^k \to V$ mit der Eigenschaft $\psi(e_i) = v_i$.
+
+Ist $V = \mathbb{R}^m$, so ist $\psi$ die von der Matrix mit den Spalten $v_1,\dots,v_k$ dargestellte Abbildung, die eindeutig ist.
+\end{beobachtung}
+
+Weiter am 22. Mai.
+\section{Differential-und Integralrechnung}
+
+\section{Numerik}
+
+\end{document}
