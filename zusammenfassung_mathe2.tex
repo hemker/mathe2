@@ -160,7 +160,7 @@ Das Bild $T_B(e_i)$m ist durch die i-te Spalte von $B$ gegeben, also $T_B(e_i) =
 \begin{satz}[Eindeutigkeit von linearen Abbildungen]
 Seien $U \subseteq \mathbb{R}^n, V \subseteq \mathbb{R}^m$ Unterräume und sei $u_1,\dots,u_k$ eine Basis von $U$.
 
-Seien $v_1,\dots,v_k$ Vektoren in $V$. Dann gibt es genau eine lineare Abbildung $\phi: U \to V$ mit der Eigenschaft $\phi(u_i) = v_i$ mit $i = \{1,\dots,k\}$.
+Seien $v_1,\dots,v_k$ Vektoren in $V$. Dann gibt es genau eine lineare Abbildung $\varphi: U \to V$ mit der Eigenschaft $\varphi(u_i) = v_i$ mit $i = \{1,\dots,k\}$.
 \end{satz}
 
 \begin{beobachtung}
@@ -169,7 +169,104 @@ Sei $V \subseteq \mathbb{R}^m$ ein Unterraum und seien $v_1,\dots,v_k \in V$. Da
 Ist $V = \mathbb{R}^m$, so ist $\psi$ die von der Matrix mit den Spalten $v_1,\dots,v_k$ dargestellte Abbildung, die eindeutig ist.
 \end{beobachtung}
 
-Weiter am 22. Mai.
+\begin{satz}
+Seien $U \subseteq \mathbb{R}^m, V \subseteq \mathbb{R}^n$ Unterräume, $u_1,\dots,u_k$ eine Basis von $U$, $v_1,\dots,v_k$ beliebige Vektoren in $V$.
+
+Dann gibt es genau eine lineare Abbildung $g: U \to V$ mit $g(U_j) = V_j$ für alle $1 \leq j \leq k$.
+
+\underline{Daraus folgt}: Jede lineare Abbildung $\varphi: \mathbb{R}^k \to \mathbb{R}^n$ ist durch eie Matrix dargestellt.
+\end{satz}
+
+\begin{satz}[Verkettung von linearen Abbildungen]
+Seien $U \subseteq \mathbb{R}^n, V \subseteq \mathbb{R}^m, W \subseteq \mathbb{R}^e$ Unterräume und $f: U \to V$ und $g: V \to W$ lineare Abbildungen.
+
+Dann ist $g \circ f$ auch eine lineare Abbildung: $g \circ f: U \to W$ mit $u \mapsto g(f(u)) (\in V)$.
+\end{satz}
+
+\begin{satz}[Kern einer Abbildung]
+Seien $U \subseteq \mathbb{R}^m, V \subseteq \mathbb{R}^n$ Unterräume und $g: U \to V$ eine lineare Abbildung. Man nennt die Menge $\{u \in U | g(u) = 0\}$ den \textbf{Kern} der Abbildung und schreibt ker($g$).
+\end{satz}
+
+\begin{proposition}
+\begin{enumerate}
+\item Sei $A$ eine $k \times n$-Matrix. Dann ist die Lösungsmenge vom Gleichungssystem $A \cdot x = 0$ ein Unterraum von $\mathbb{R}^n$, also $\{ x \in \mathbb{R}^n | A \cdot x = 0 \}$.
+
+Ist $T_A : \mathbb{R}^n \to \mathbb{R}^k$ mit $y \mapsto A \cdot y$ die Abbildung mit darstellender Matrix $A$, dann ist $\{x \in \mathbb{R}^n | A \cdot x = 0\} = ker(T_A)$.
+\item Ist $A$ eine $k \times n$-Matrix, $b \in \mathbb{R}^k, b \neq 0$. Dann ist $\{ x \in \mathbb{R}^k | A \cdot x = b \}$ kein Unterraum von $\mathbb{R}^n$ (affin), aber: Ist $\{x \in \mathbb{R}^n | A \cdot x = b \} \neq 0$, dann gilt für $y \in \{x \in \mathbb{R}^n | A \cdot x = b\}$: Alle anderen Lösungen entstehen als Summe von $y$ und einem Element von $\{w \in \mathbb{R}^n | A \cdot w = 0\}$ (Unterraum).
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}[Inverse]
+Ist $A$ eine quadratische Matrix $k \times k$, dann nennt man eine Matrix $B$ ($k \times k$) die \underline{Inverse} von $A$, falls $A \cdot B = E_k$ und $B \cdot A = E_k$. Nicht jede quadratische Matrix hat eine Inverse.
+\end{definition}
+
+\begin{satz}
+Hat eine $n \times n$-Matrix $D$ eine Basis von $\mathbb{R}^n$ als Spalte, so hat $D$ eine inverse Matrix.
+\end{satz}
+Andersrum: Hat eine Matrix $E$ eine inverse Matrix, so sind ihre Spalten eine Basis von $\mathbb{R}^n$.
+
+\newpage
+\subsection{Skalarprodukt, Abstände und Winkel}
+
+\begin{definition}[Skalarprodukt]
+Das Standardskalarprodukt auf $\mathbb{R}^n$ ist gegeben durch 
+
+$\left\langle \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix},\begin{pmatrix}y_1\\\vdots\\y_n\end{pmatrix} \right\rangle = (x_1\cdot y_1) + (x_2\cdot y_2) + \dots + (x_n\cdot y_n) \in \mathbb{R}^n$.
+\end{definition}
+
+\begin{beobachtung}
+$\left\langle \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix},\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} \right\rangle = x_1^2 + x_2^2 + \dots + x_n^2 \geq 0$.
+\end{beobachtung}
+
+\begin{definition}[Länge eines Vektors]
+Die \underline{Länge} eines Vektors $x \in \mathbb{R}^n$ ist gegeben durch
+
+$\left\| x \right\| = \sqrt{\langle x^2,x^2 \rangle}$
+\end{definition}
+
+\begin{definition}[Orthogonalität]
+Zwei Vektoren $x,y \in \mathbb{R}^n$ heißen \underline{dorthogonal} zueinander, falls das Skalarprodukt null ist.
+\end{definition}
+
+\begin{satz}[Eigenschaften vom Skalarprodukt]
+\begin{enumerate}
+\item Das Skalarprodukt ist symmetrisch: Sind $x,y \in \mathbb{R}^n$, so ist $\langle x,y \rangle = \langle y,x \rangle$.
+\item Ist $w \in \mathbb{R}^n$ fest, so ist $\mathbb{R}^n \to \mathbb{R}$ mit $x \mapsto \langle x,y \rangle$ linear, das heißt:
+\begin{enumerate}
+\item $\langle w, x+y \rangle = \langle w,x \rangle + \langle w,y \rangle \forall x,y \in \mathbb{R}^n$.
+\item $\langle w, \lambda \cdot x \rangle = \lambda \cdot \langle w,x \rangle \forall \lambda \in \mathbb{R}, x \in \mathbb{R}^n$.
+\end{enumerate}
+\item Für $ x \in \mathbb{R}^n$ gilt: $x = 0 \Leftrightarrow \langle x,x \rangle = 0$
+\end{enumerate}
+\end{satz}
+Die darstellende Matrix von $\mathbb{R}^n \to \mathbb{R}$ mit $x \mapsto \langle w,x \rangle$ ist der Vektor $w$ in eine Zeile geschrieben.
+
+\begin{definition}[Orthogonales System]
+Die Vektoren $v_1, \dots, v_k \in \mathbb{R}^n$ heißen \underline{orthogonales System}, falls sie paarweise zueinander orthogonal sind, d.h. alle Skalarprodukte $\langle v_i,v_j \rangle = 0$ für alle $1 \leq i \neq j \leq k$.
+
+Eine Basis $w_1,\dots,w_n$ von $\mathbb{R}^n$, die gleichzeitig ein orthogonales System ist, heißt \underline{Orthogonalbasis}.
+\end{definition}
+
+\begin{satz}[Orthogonalbasis]
+\begin{enumerate}
+\item Jeder Unterraum $U \subseteq \mathbb{R}^n, U \neq \{0\}$ hat eine Orthogonalbasis.
+\item Ist $v_1, \dots, v_n \in \mathbb{R}^n$ eine Orthogonalbasis und sei $B$ die Matrix mit Spalten $v_1, \dots, v_k$. Dann ist $v_1^T$ der Vektor $v_1$ als Zeile aufgeschrieben.
+\end{enumerate}
+\end{satz}
+
+\begin{beobachtung}
+Im Allgemeinen erhalten lineare Abbildungen keine Abstände und rechte Winkel.
+\end{beobachtung}
+
+\begin{definition}[Orthogonale lineare Abbildungen]
+Eine lineare Abbildung $\varphi: \mathbb{R}^n \to \mathbb{R}^n$ heißt \underline{orthogonal}, falls sie Längen von Vektoren und rechte Winkel zwischen Vektoren erhält, das heißt:
+\begin{enumerate}
+\item $\left\| u \right\| = \left\| \varphi(u) \right\|$ für alle $u \in \mathbb{R}^n$.
+\item Sind $u, v \in \mathbb{R}^n$ mit $\langle u,v \rangle = 0$, so sind ihre Bilder auch orthogonal: $\langle \varphi(u), \varphi(v) \rangle = 0$.
+\end{enumerate}
+\end{definition}
+
+Die Fläche eines Parallelogramms lässt sich mit der Formel $|ad-bc|$ berechnen. Wir wissen, dass $\begin{pmatrix}a\\b\end{pmatrix}, \begin{pmatrix}c\\d\end{pmatrix}$ genau dann linear unabhängig sind, wenn $ad-bc \neq 0$ ist.
 \section{Differential-und Integralrechnung}
 
 \section{Numerik}
