@@ -254,6 +254,22 @@ Eine Basis $w_1,\dots,w_n$ von $\mathbb{R}^n$, die gleichzeitig ein orthogonales
 \end{enumerate}
 \end{satz}
 
+\begin{proposition}
+Sind $v_1, \dots, v_k \in \mathbb{R}^n$, die ein orthogonales System bilden und gilt $v_I \neq 0$ für $1 \leq i \leq k$, dann sind die Vektoren linear unabhängig.
+\end{proposition}
+
+\begin{definition}[Orthogonales Komplement]
+Sei $w \in \mathbb{R}^n$, dann  ist $w \perp = \{x \in \mathbb{R}^n |  \langle x,w \rangle  = 0 \}$. Sei ferner $U \subseteq \mathbb{R}^n$ ein Unterraum. Dann nennt man 
+
+$U \perp = \{ x \in \mathbb{R}^n | \forall u \in U: \langle x,u \rangle = 0 \}$ das \underline{orthogonale Komplement} von $U$.
+\end{definition}
+
+\begin{satz}
+Sei $U \subseteq \mathbb{R}^n$, dim U = $k$. Dann ist $U \perp$ ebenfalls ein Unterraum von $\mathbb{R}^n$ mit $dim(U \perp) = n-k$.
+
+Auch für $w \in \mathbb{R}^n, w \neq 0$ ist $w \perp$ ein (n-1) dimensionaler Unterraum von $\mathbb{R}^n$.
+\end{satz}
+
 \begin{beobachtung}
 Im Allgemeinen erhalten lineare Abbildungen keine Abstände und rechte Winkel.
 \end{beobachtung}
@@ -269,6 +285,62 @@ Eine lineare Abbildung $\varphi: \mathbb{R}^n \to \mathbb{R}^n$ heißt \underlin
 Die Fläche eines Parallelogramms lässt sich mit der Formel $|ad-bc|$ berechnen. Wir wissen, dass $\begin{pmatrix}a\\b\end{pmatrix}, \begin{pmatrix}c\\d\end{pmatrix}$ genau dann linear unabhängig sind, wenn $ad-bc \neq 0$ ist.
 \section{Differential-und Integralrechnung}
 
+\begin{definition}[Grenzwert]
+Eine reelle Zahl $a$ ist der \underline{Grenzwert} von einer Folge $(a_n), n \in \mathbb{N}$, wenn es zu jeder Zahl $10^{-m}, m \in \mathbb{N}$ eine natürliche Zahl $N(m)$ gibt, sodass $|a_n - a | \le 10^{-m}$ für $ n \ge N(m).$ Man sagt auch $(a_n)$ konvergiert gegen $a$.
+\end{definition}
+Für eine irrationale Zahl $b$ und $a \geq 0$ beliebig schreiben wir hier $(b_n)$  für die Dezimaldarstellung der ersten $n$ Stellen von $b$.
+
+Dann konvergiert $(a^{b_n})_{n \geq 0}$ und den Grenzwert bezeichnen wir mit $a^b$.
+
+\begin{definition}[Reihe]
+Eine \underline{Reihe} ist eine Folge, deren Folgenglieder selbst Summen von Folgengliedern einer anderen Folge sind.
+\end{definition}
+
+\begin{definition}[Ableitung]
+Die \underline{Ableitung} einer Funktion $f: I \to \mathbb{R}, I \subseteq \mathbb{R}$ an der Stelle $x = a \in I$ ist definiert als $f'(a) = \lim\limits_{n \rightarrow 0}{\frac{f(a+h)-f(a)}{h}}$ falls der Grenzwert existiert. Falls er nicht existiert, ist die Ableitung nicht definiert.
+\end{definition}
+
+\underline{Ableitungsregeln:}\\[1em]
+$f,g: I \to \mathbb{R}$ sind differenzierbar, haben also eine Ableitung in jedem Punkt von $I$.
+
+$f+g: I \to \mathbb{R}$ mit $x \mapsto f(x) + g(x)$.
+\begin{itemize}
+\item \textbf{Summenregel}: $(f+g)' = f' + g'$, d.h. $(f+g)' = f'(x_0) + g'(x_0)$ für alle $x_0 \in I$.
+\item \textbf{Produkt} mit einer Konstanten $c \in \mathbb{R}: c \cdot f: I \to \mathbb{R}$ mit $x \mapsto c \cdot f(x)$.
+
+	$(c\cdot f)' = c \cdot f'$
+\item \textbf{Produktregel} $(f\cdot g)' = f' \cdot g + f \cdot g'$
+\item \textbf{Quotientenregel} $(\frac{f}{g})' = \frac{f' \cdot g - f \cdot g'}{g^2}$
+	
+	ist nur definiert, wenn $g \neq 0$ für alle $x \in I$.
+\item \textbf{Kettenregel} Ist $f \circ g$ definiert, so ist $(f \circ g)'(x) = f'(g(x)) \cdot g'(x)$
+\end{itemize}
+
+\begin{definition}[Logarithmus]
+Der \underline{Logarithmus} ist die eindeutige Zahl von $c$ zu Basis $a$, die der Gleichung $a^b = c$ genügt (für positive $a$ und $c$).
+\end{definition}
+
+\begin{definition}[Eulersche Zahl $e$]
+Die \underline{Eulersche Zahl e} ist die eindeutige positive Zahl, so dass die Funktion $\mathbb{R} \to \mathbb{R}$ mit $x \mapsto e^x$ als Ableitungsfunktion $x \mapsto e^x$ hat.
+
+Konventionen: $log_e = ln$, $log_{10} = log$, $log_a (x) = \frac{ln(x)}{ln(a)}$.
+\end{definition}
+
+\begin{definition}[Globales Maximum/Minimum]
+Sei $f: I \to \mathbb{R}$ eine Funktion. $f$ hat ein
+\begin{itemize}
+\item (globales) \underline{Maximum} in $x_0 \in I$, falls für alle $x \in I$ gilt: $f(x_0) \geq f(x)$.
+\item (globales) \underline{Minimum} in $a \in I$, falls für alle $x \in I$ gilt: $f(a) \leq f(x)$.
+\end{itemize}
+\end{definition}
+
+\begin{definition}[Lokales Maximum/Minimum]
+Ein \underline{lokales Maximum} von $f$ liegt in $x_0$ vor, falls $x_0$ ein globales Maximum auf einem (kleinen) Intervall in $I$ um $x_0 \in I$ ist.
+
+Das \underline{lokale Minimum} ist analog.
+\end{definition}
+
+Weiter am 26.06.
 \section{Numerik}
 
 \end{document}
