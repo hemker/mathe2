@@ -340,7 +340,77 @@ Ein \underline{lokales Maximum} von $f$ liegt in $x_0$ vor, falls $x_0$ ein glob
 Das \underline{lokale Minimum} ist analog.
 \end{definition}
 
-Weiter am 26.06.
+\underline{Bestimmung von lokalen und globalen Extrema:}\\[1em]
+von $g: I \to \mathbb{R}$
+
+\begin{enumerate}
+\item Man bestimme $g': I \to \mathbb{R}$.
+\item Man bestimme die Nullstelle von $g'$.
+\item Man bestimme das Vorzeichenverhalten von $g'$ auf $I$. Liegt in einer Nullstelle $a$ von $g'$ ein Vorzeichenwechsel von + nach - vor, so hat $g$ in $a$ ein lokales Maximum. Umgekert: Von - nach +: lokales Minimum. Liegt kein Vorzeichenwechsel vor, so liegt auch kein Extremum vor (mit kleinen Ausnahmen).
+\item Man bestimme die Werte von $g$ in allen lokalen Extrema.
+\item Enthält $I$ ein oder mehrere abgeschlossene oder halb offene Intervalle, so berechne man die Werte von $g$ an den Intervallgrenzen.
+\item Man vergleiche die Werte aus Schritten 4 und 5 und bestimme dadurch die globalen Extrema.
+\end{enumerate}
+
+\begin{definition}[Monotonie]
+Eine Funktion $f: I \to \mathbb{R}$ ist \underline{streng monoton steigend}, falls für alle $x_1,x_2 \in I$ mit $x_1 < x_2$ auch $f(x_1) < f(x_2)$ gilt.
+
+Die Funktion heißt \underline{schwach monoton steigend}, falls für alle $x_1,x_2 \in I$ mit $x_1 < x_2$ auch $f(x_1) \leq f(x_2)$ gilt.
+
+Monoton fallend ist analog.
+\end{definition}
+
+\begin{definition}
+Sei $f: I \to \mathbb{R}$ eine differenzierbare Funktion. Wenn $f$ ein lokales Extremum in $x_0 \in I$ hat, dann ist $f'(x_0) = 0$.
+
+\underline{Warnung:} Wenn $f'(x) = 0$, muss kein lokales Extremum vorliegen.
+\end{definition}
+
+\begin{definition}
+Sei $f: I \to \mathbb{R}$ eine differenzierbare Funktion. Ist $f$ auf $I$ monoton steigend, dann ist die Ableitung $f'(x) \geq 0$ auf ganz $I$, d.h. für alle $x \in I$.
+
+Ist $f'(x) > 0$ für alle $x \in I$, so ist $f$ monoton steigend auf $I$.
+
+Sei $f: I \to \mathbb{R}$ eine differenzierbare Funktion. Ist $f$ auf $I$ monoton fallend, dann ist die Ableitung $f'(x) \leq 0$ auf ganz $I$, d.h. für alle $x \in I$.
+
+Ist $f'(x) > 0$ für alle $x \in I$, so ist $f$ monoton fallend auf $I$.
+\end{definition}
+
+\underline{Additionstheoreme}\\[1em]
+$cos(\alpha + \beta) = cos\alpha \cdot cos \beta - sin \alpha \cdot sin \beta$
+
+$sin(\alpha + \beta) = sin \alpha \cdot cos \beta + sin \beta \cdot cos \alpha$
+
+\begin{definition}[Polynom]
+Ein \underline{Polynom} in einer Variablen $x$ ist ein Ausdruck der Form $P(x) = a_0 x^0 + a_1 x^1 + a_2 x^2 + ... + a_k x^k$, wobei $a_0,a_1,...,a_k \in \mathbb{R}$ (Koeffizienten).
+
+Ist $a_k \neq 0$, so nennt man $k$ den \underline{Grad} des Polynoms
+\end{definition}
+
+\begin{definition}[Glatte Funktionen]
+Eine Funktion heißt \underline{glatt}, falls man sie beliebig oft ableiten kann.
+\end{definition}
+
+\begin{definition}[Taylor Polynom]
+Sei $f$ eine glatte Funktion. Dann nennt man das Polynom 
+
+$(T_n f)(x) = \sum\nolimits_{k=0}^n \frac{f^{(k)} (x_0)}{k!} \cdot (x-x_0)^k$ 
+
+das $n$-te Taylor-Polynom von $f$ an der Stelle $x_0$ ($x_0$ muss im Definitionsbereich liegen).
+
+Konventionen:\\
+ $k! = k\cdot(k-1)\cdot(k-1)\cdot... \cdot 1,\\
+  0! = 1,\\
+   f^{(0)} = f$
+\end{definition}
+
+\begin{satz}
+Sei $f: I \to \mathbb{R}$ eine glatte Funktion, $x_0 \in I, I = (a,b)$.
+
+$f(x) - (T_n f)(x) = \frac{f^{(n+1)}(c)}{(n+1)!} \cdot (x-x_0)^{n+1}$
+
+und $c$ ist in $I$ zwischen $x$ und $x_0: x_0 \leq c \leq x$ oder $x \leq c \leq x_0$.
+\end{satz}
 \section{Numerik}
 
 \end{document}
