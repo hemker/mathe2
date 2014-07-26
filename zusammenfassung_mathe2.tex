@@ -1,4 +1,5 @@
 \documentclass{mg2}
+\usepackage{hyperref}
 \usepackage{thmbox}
 \begin{document}
 \newtheorem[S]{definition}{Definition}[subsection]
@@ -7,12 +8,16 @@
 \newtheorem[S]{satz}{Satz}[subsection]
 \newtheorem[S]{beobachtung}{Beobachtung}[subsection]
 
-\title{Zusammenfassung: Mathematische Grundlagen 2}
-
+\title{Mathematische Grundlagen 2}
+\subtitle{Lineare Algebra und Differential- und Integralrechnung}
 \date{SoSe 2014}
+\author{Dozentin: Dr. Viktoriya Ozornova}
+
 \maketitle
 
-\newpage
+
+\textbf{Hinweis}: Dies ist für die Klausurvorbereitung eine inoffizielle Zusammenfassung der Definitionen, Sätze, Theoreme und Propositionen, die in der Veranstaltung vorgestellt worden. Die Richtigkeit wird nicht garantiert. Ihr dürft euch zur Verbesserung der Zusammenfassung gerne an dem Github-Projekt\footnote{\url{https://github.com/dschwarz90/mathe2}} beteiligen.
+
 
 \tableofcontents
 
@@ -150,9 +155,7 @@ $T_B: \mathbb{R}^k \to \mathbb{R}^n; x \mapsto B \cdot x$ ist eine lineare Abbil
 \end{satz}
 
 \begin{proposition}
-Sei $B$ eine $n \times k$-Matrix:
-
-$B = \begin{pmatrix} b_{11} \dots b_{1k}\\ b_{21} \dots b_{2k}\\\vdots\\ b_{n1} \dots b_{nk}\end{pmatrix}$ und sei $T_B = \mathbb{R}^k \to \mathbb{R}^n$ die von $B$ dargestellte Abbildung. 
+Sei $B$ eine $n \times k$-Matrix: $B = \begin{pmatrix} b_{11} \dots b_{1k}\\ b_{21} \dots b_{2k}\\\vdots\\ b_{n1} \dots b_{nk}\end{pmatrix}$ und sei $T_B = \mathbb{R}^k \to \mathbb{R}^n$ die von $B$ dargestellte Abbildung. 
 
 Das Bild $T_B(e_i)$m ist durch die i-te Spalte von $B$ gegeben, also $T_B(e_i) = \begin{pmatrix}b_{1i}\\b_{2i}\\\vdots\\b_{ni}\end{pmatrix}$
 \end{proposition}
@@ -205,7 +208,7 @@ Hat eine $n \times n$-Matrix $D$ eine Basis von $\mathbb{R}^n$ als Spalte, so ha
 \end{satz}
 Andersrum: Hat eine Matrix $E$ eine inverse Matrix, so sind ihre Spalten eine Basis von $\mathbb{R}^n$.
 
-\newpage
+
 \subsection{Skalarprodukt, Abstände und Winkel}
 
 \begin{definition}[Skalarprodukt]
@@ -221,11 +224,11 @@ $\left\langle \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix},\begin{pmatrix}x_1\\\
 \begin{definition}[Länge eines Vektors]
 Die \underline{Länge} eines Vektors $x \in \mathbb{R}^n$ ist gegeben durch
 
-$\left\| x \right\| = \sqrt{\langle x^2,x^2 \rangle}$
+$\left\| x \right\| = \sqrt{\langle x,x \rangle}$
 \end{definition}
 
 \begin{definition}[Orthogonalität]
-Zwei Vektoren $x,y \in \mathbb{R}^n$ heißen \underline{dorthogonal} zueinander, falls das Skalarprodukt null ist.
+Zwei Vektoren $x,y \in \mathbb{R}^n$ heißen \underline{orthogonal} zueinander, falls das Skalarprodukt null ist.
 \end{definition}
 
 \begin{satz}[Eigenschaften vom Skalarprodukt]
@@ -435,6 +438,8 @@ Dann ist $F_c$ eine \underline{Stammfunktion} von $f$, d.h. $F_c'(x) = f(x)$. Je
 
 Ist insbesondere $g: [d_1, b_1] \to \mathbb{R}$ eine Funktion, die die Ableitungsfunktion von $G: [a_1, b_1] \to \mathbb{R}$ ist, dann lässt sich $\int_{a_1}^{b_1} \! g(y) \, \mathrm{d}y$ als $G(b) - G(a)$ ausrechnen. Wir schreiben $G |_a^b$ dafür.
 \end{satz}
+
+\newpage
 
 \underline{Einige Stammfunktionen}\\[1em]
  \begin{tabular}{l|l}

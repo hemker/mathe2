@@ -1,7 +1,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{mg2}
-\LoadClass[11pt,a4paper,twoside]{article}
+\LoadClass[11pt,a4paper,twoside]{scrartcl}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
