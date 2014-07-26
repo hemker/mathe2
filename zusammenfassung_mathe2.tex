@@ -411,6 +411,64 @@ $f(x) - (T_n f)(x) = \frac{f^{(n+1)}(c)}{(n+1)!} \cdot (x-x_0)^{n+1}$
 
 und $c$ ist in $I$ zwischen $x$ und $x_0: x_0 \leq c \leq x$ oder $x \leq c \leq x_0$.
 \end{satz}
-\section{Numerik}
 
+\begin{definition}[Ober-/Untersumme]
+Sei $f: [a,b] \to \mathbb{R}$ eine Funktion. Wir betrachten eine \underline{Unterteilung} $a = x_0 < x_1 < x_2 < ... < x_k = b$ des Intervalls [a,b].
+
+\underline{Obersumme}: $O = \sum\nolimits_{i=0}^{k-1} max(f)_{[x_i, x_{i+1}]} \cdot (x_{i+1} - x_i)$
+
+\underline{Untersumme}: $U = \sum\nolimits_{i=0}^{k-1} min(f)_{[x_i, x_{i+1}]} \cdot (x_{i+1} - x_i)$
+\end{definition}
+
+\begin{definition}[Integral]
+$\int_a^b \! f(x) \, \mathrm{d}x$ = Übereinstimmen des Grenzwertes der Ober- und Untersumme, falls dieser existiert.
+
+Man kann auch (für Approximationen) beliebige Werte der Funktion $f$ auf jedem Intervall $[x_i, x_{i+1}]$ wählen.
+
+\underline{Konvention}: $\int_a^b \! f(x) \, \mathrm{d}x = \int_b^a \! f(x) \, \mathrm{d}x, a < b$
+\end{definition}
+
+\begin{satz}[Hauptsatz der Integral- und Differentialrechnung]
+Sei $f: [a,b] \to \mathbb{R}$ eine (stetige) Funktion. Sei $c \in [a,b]$ und $F_c: [a,b] \to \mathbb{R}$ mit $x \mapsto \int_a^b \! f(x) \, \mathrm{d}x$.
+
+Dann ist $F_c$ eine \underline{Stammfunktion} von $f$, d.h. $F_c'(x) = f(x)$. Jede andere Stammfunktion von $f$ lässt sich als $F(x) = F_c(x)+d, d \in \mathbb{R}$, schreiben. Stammfunktionen sind nicht eindeutig.
+
+Ist insbesondere $g: [d_1, b_1] \to \mathbb{R}$ eine Funktion, die die Ableitungsfunktion von $G: [a_1, b_1] \to \mathbb{R}$ ist, dann lässt sich $\int_{a_1}^{b_1} \! g(y) \, \mathrm{d}y$ als $G(b) - G(a)$ ausrechnen. Wir schreiben $G |_a^b$ dafür.
+\end{satz}
+
+\underline{Einige Stammfunktionen}\\[1em]
+ \begin{tabular}{l|l}
+\textbf{Funktion} & \textbf{eine Stammfunktion}\\\hline
+$x \mapsto x^\alpha$ & $x \mapsto \frac{x^{\alpha+1}}{\alpha+1}, \alpha \neq 0$\\\hline
+$x \mapsto \frac{1}{x}, x > 0$ & $x \mapsto ln(x), x > 0$\\\hline
+$x \mapsto e^x$ & $x \mapsto e^x$\\\hline
+$x \mapsto sin(x)$ & $x \mapsto -cos(x)$\\\hline
+$x \mapsto cos(x)$ & $x \mapsto sin(x)$\\\hline
+ \end{tabular}
+ 
+ \underline{Integrationsregeln}\\[1em]
+ \begin{tabular}{l|p{8cm}}
+\textbf{Ableitungsregel} & \textbf{Integrationsregel}\\\hline
+Summenregel & $\int_a^b \! (f(x) + g(x)) \, \mathrm{d}x = \int_a^b \! f(x) \, \mathrm{d}x + \int_a^b \! g(x) \, \mathrm{d}x$\\\hline
+Produktregel & partielle Integration: $\int_a^b \! (u'(x) \cdot v(x)) \, \mathrm{d}x = u(x)v(x)|_a^b - \int_a^b \! u(x) \cdot v'(x) \, \mathrm{d}x$\\\hline
+Kettenregel & Substitutionsregel: $\int_a^b \! f(\varphi(t)) \cdot \varphi'(t) \, \mathrm{d}t = \int_{\varphi(a)}^{\varphi(b)} \! f(x) \, \mathrm{d}x$\\\hline
+ \end{tabular}
+ 
+ \begin{satz}[Volumenbestimmung]
+ Sei ein 3D-Körper vorgegeben, so dass die Funktion $F: [a,b] \to \mathbb{R}$, die jeder Stelle $x \in [a,b]$ die Querschnittsfläche an der Stelle $x$ zuordnet, integrierbar ist.
+ 
+ Dann ist das Volumen von dem Körper gegeben durch $V = \int_a^b \! F(x) \, \mathrm{d}x$.
+ \end{satz}
+ 
+\section{Numerik}
+Absoluter Fehler: $x' - x$\\
+Relativer Fehler: $\frac{x'-x}{x}$\\
+\subsection{Newton-Verfahren}
+\begin{satz}
+Ist $f$ 3x differenzierbar und $f'(x) \neq 0$ für alle $x \in [a,b], x_0 \in [a,b]$, dann konvergiert die Folge $(x_n)$ gegen eine Nullstelle von $f$ (und alle $x_n \in [a,b]$).
+\end{satz}
+\subsection{Interpolation}
+\begin{satz}[Interpolation]
+Seien $(n+1)$ Stützpunkte vorgegeben: $(x_0,y_0), (x_1,y_1), ..., (x_n,y_n)$ (mit $x_i \neq x_j$ für $i \neq j$). Dann gibt es ein Polynom $P$ vom Grad $\leq n$, sodass $P(x_i) = y_i$ für alle $0 \leq i \leq n$.
+\end{satz}
 \end{document}
